@@ -1,0 +1,22 @@
+services:
+  nginx:
+    container_name: nginx
+    restart: always
+    image: nginx:1.29.3
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - pygeoapi
+
+  pygeoapi:
+    image: geopython/pygeoapi:0.22.0
+    volumes:
+      - ./pygeoapi/pygeoapi-config.yml:/pygeoapi/local.config.yml:ro
+      - ./pygeoapi/ne_110m_lakes.geojson:/pygeoapi/ne_110m_lakes.geojson:ro
+    environment:
+      - SCRIPT_NAME=/pygeoapi
+    deploy:
+      replicas: 1
+    restart: unless-stopped
