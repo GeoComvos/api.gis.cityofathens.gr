@@ -27,16 +27,16 @@ services:
       - "8080:8080"
     volumes:
       - ./geoserver_data:/opt/geoserver_data
-    environment:
-      - GEOSERVER_ADMIN_PASSWORD=secret
+    # environment:
+    #   - GEOSERVER_ADMIN_PASSWORD=secret
     deploy:
-      replicas: 1
+      replicas: 0
     restart: no
 
   geoserver:
     image: docker.osgeo.org/geoserver:2.27.3
     volumes:
-      - ./geoserver_data:/opt/geoserver_data:ro
+      - ./geoserver_data:/opt/geoserver_data
     deploy:
-      replicas: 0
+      replicas: 2
     restart: unless-stopped
