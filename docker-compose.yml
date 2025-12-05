@@ -38,5 +38,5 @@ services:
     volumes:
       - ./geoserver_data:/opt/geoserver_data
     deploy:
-      replicas: 2
+      replicas: 1
     restart: unless-stopped
