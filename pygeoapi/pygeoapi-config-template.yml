@@ -31,7 +31,7 @@ server:
     bind:
         host: 0.0.0.0
         port: 80
-    url: http://api.gis.cityofathens.gr/pygeoapi
+    url: https://api.gis.cityofathens.gr/pygeoapi
     mimetype: application/json; charset=UTF-8
     encoding: utf-8
     language: en-US
@@ -61,7 +61,7 @@ metadata:
             - OGC
         keywords_type: theme
         terms_of_service: https://creativecommons.org/licenses/by/3.0/
-        url: https://api.gis.cityofathens.gr
+        url: https://api.gis.cityofathens.gr/pygeoapi
     license:
         name: CC-BY 3.0 license
         url: https://creativecommons.org/licenses/by/3.0/
